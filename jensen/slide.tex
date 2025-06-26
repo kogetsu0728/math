@@ -40,7 +40,7 @@
         を満たすとき，またその時に限り$f(x)$を凹関数という．
     \end{dfn}
 
-    以下の定理が知られている．証明は省略する．
+    また，次の定理が知られている．証明は省略する．
     \begin{thm}
         $f(x)$を実数上の関数とする． $f(x)$が二階微分可能ならば，
         \[
@@ -49,17 +49,34 @@
     \end{thm}
 \end{frame}
 
-\begin{frame}{凹関数の判定}
-    二階微分を用いて，凹関数の判定を行う．
-
+\begin{frame}{$log_2 x$が凹関数であることの証明}
     \begin{thm}
-        $log_2 x$は凹関数である．
+        $log_2 x$は$x > 0$で凹関数である．
+    \end{thm}
+
+    \begin{proof}
+        $x,y$を正の実数，$\lambda$を$0 \le \lambda \le 1$を満たす実数とする．
+
+        \textbf{重み付き相加相乗平均の不等式}(weighted AM-GM inequality)から，
+        \[
+            (1-\lambda)x + \lambda y \ge x^{1-\lambda} y^\lambda.
+        \]
+        両辺の対数を取ると，
+        \[
+            \log_2 ((1-\lambda)x + \lambda y) \ge \log_2 (x^{1-\lambda} y^\lambda) = (1-\lambda)\log_2 x + \lambda \log_2 y.
+        \]
+    \end{proof}
+\end{frame}
+
+\begin{frame}{$log_2 x$が凹関数であることの証明2}
+    \begin{thm}
+        $log_2 x$は$x > 0$で凹関数である．
     \end{thm}
 
     \begin{proof}
         \[
-            (\log_2 x)' = \frac{1}{x \log 2}, \qquad
-            (\log_2 x)'' = -\frac{1}{x^2 \log 2} \le 0.
+            (\log_2 x)' = \frac{1}{(\log 2)x}, \qquad
+            (\log_2 x)'' = -\frac{1}{(\log 2)x^2} \le 0.
         \]
     \end{proof}
 \end{frame}
@@ -70,7 +87,7 @@
 \end{frame}
 
 \begin{frame}{Jensenの不等式}
-    以下の不等式を\textbf{Jensenの不等式}という\cite{lit:kanketsu}．
+    以下の不等式を\textbf{Jensenの不等式}(Jensen's inequality)という\cite{lit:kanketsu}．
 
     \begin{thm}
         $f(x)$を凹関数とする．
@@ -81,7 +98,7 @@
         \]
     \end{thm}
 
-    数学的帰納法で証明できる．
+    証明には数学的帰納法を用いる．
     $n=2$のときは凹関数の定義より明らか．
 
 	\vskip\baselineskip
