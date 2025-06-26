@@ -1,0 +1,128 @@
+\documentclass[dvipdfmx]{beamer}
+
+\usepackage{amsmath}
+\usepackage{comment}
+\usepackage{url}
+\usepackage{pxjahyper}
+
+\usepackage{amsthm}
+\theoremstyle{plain}
+\newtheorem{thm}{Theorem}
+
+\theoremstyle{definition}
+\newtheorem{dfn}{Definition}
+
+\usetheme{Madrid}
+
+\title{
+    Jensenの不等式
+}
+\author{kogetsu}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\section{凹関数}
+\begin{frame}{目次}
+	\tableofcontents[currentsection]
+\end{frame}
+
+\subsection{凹関数の定義}
+\begin{frame}{凹関数の定義}
+    上に凸な関数を\textbf{凹関数}(concave function)という\cite{lit:proof}．
+    \begin{dfn}
+        $f(x)$を実数上の関数，$x,y$を実数，$\lambda$を$0 \le \lambda \le 1$を満たす実数とする．
+        \[
+            f((1-\lambda)x + \lambda y) \ge (1-\lambda)f(x) + \lambda f(y)
+        \]
+        を満たすとき，またその時に限り$f(x)$を凹関数という．
+    \end{dfn}
+\end{frame}
+
+\subsection{凹関数の判定}
+\begin{frame}{凹関数の判定}
+    以下の定理が知られている．証明は省略する．
+
+    \begin{thm}
+        $f(x)$を実数上の関数とする． $f(x)$が二階微分可能ならば，
+        \[
+            \text{$f(x)$は凹関数} \iff f''(x) \le 0.
+        \]
+    \end{thm}
+
+    以下のことがわかる．
+
+    \begin{thm}
+        $log_2 x$は凹関数である．
+    \end{thm}
+
+    \begin{proof}
+        \[
+            (\log_2 x)' = \frac{1}{x \log 2}, \qquad
+            (\log_2 x)'' = -\frac{1}{x^2 \log 2} \le 0.
+        \]
+    \end{proof}
+\end{frame}
+
+\section{Jensenの不等式}
+\begin{frame}{目次}
+	\tableofcontents[currentsection]
+\end{frame}
+\begin{frame}{Jensenの不等式}
+    以下の不等式を\textbf{Jensenの不等式}という\cite{lit:kanketsu}．
+
+    \begin{thm}
+        $f(x)$を凹関数とする．
+        また，$p_{1}, p_{2}, \ldots, p_{n}$を$p_{1} + p_{2} + \cdots + p_{n} = 1$である非負の実数とし，
+        $x_{1}, x_{2}, \ldots, x_{n}$を実数とすると，
+        \[
+            \sum_{i=1}^{n} p_{i}f(x_{i}) \le f(\sum_{i=1}^{n} p_{i}x_{i}).
+        \]
+    \end{thm}
+
+    数学的帰納法で証明できる．
+    $n=2$のときは凹関数の定義より明らか．
+
+	\vskip\baselineskip
+    符号長を表す式は$log_2 x$など凹関数が多く，Jensenの不等式を用いて上界を求められる．
+\end{frame}
+
+\begin{frame}{不等式の証明}
+    エントロピーに関する以下の不等式をJensenの不等式を用いて証明する．
+    \begin{thm}
+        \[
+        H(A) \le \log_2 M.
+        \]
+    \end{thm}
+
+    \begin{proof}
+        $\log_2 x$は凹関数だから，Jensenの不等式より，
+        \[
+            H(A) = \sum_{i=1}^M p_{i} \log_2 \frac{1}{p_{i}} \le \log_2 (\sum_{i=1}^M p_{i} \frac{1}{p_{i}}) = \log_2 M.
+        \]
+    \end{proof}
+\end{frame}
+
+\section*{参考文献}
+\begin{frame}{参考文献}
+\begin{thebibliography}{9}
+\renewcommand{\baselinestretch}{1.0}
+\small
+\beamertemplatetextbibitems
+\bibitem{lit:proof}
+    数学の景色,
+    ``凸関数と凸不等式(イェンセンの不等式)についてかなり詳しく'',
+    https://mathlandscape.com/convex-func/,
+    (参照: 2025-06-26).
+
+\bibitem{lit:kanketsu}
+    定兼 邦彦,
+    ``簡潔データ構造'',
+    共立出版, 2018.
+
+\end{thebibliography}
+\end{frame}
+
+\end{document}
+
