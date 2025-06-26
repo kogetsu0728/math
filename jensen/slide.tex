@@ -1,4 +1,4 @@
-\documentclass[dvipdfmx]{beamer}
+\documentclass[dvipdfmx,aspectratio=169]{beamer}
 
 \usepackage{amsmath}
 \usepackage{comment}
@@ -12,7 +12,7 @@
 \theoremstyle{definition}
 \newtheorem{dfn}{Definition}
 
-\usetheme{Madrid}
+\usetheme{Boadilla}
 
 \title{
     Jensenの不等式
@@ -28,30 +28,27 @@
 	\tableofcontents[currentsection]
 \end{frame}
 
-\subsection{凹関数の定義}
 \begin{frame}{凹関数の定義}
     上に凸な関数を\textbf{凹関数}(concave function)という\cite{lit:proof}．
     \begin{dfn}
-        $f(x)$を実数上の関数，$x,y$を実数，$\lambda$を$0 \le \lambda \le 1$を満たす実数とする．
+        $f(x)$を実数上の関数とする．また，$x,y$を実数，$\lambda$を$0 \le \lambda \le 1$を満たす実数とする．
         \[
             f((1-\lambda)x + \lambda y) \ge (1-\lambda)f(x) + \lambda f(y)
         \]
         を満たすとき，またその時に限り$f(x)$を凹関数という．
     \end{dfn}
-\end{frame}
 
-\subsection{凹関数の判定}
-\begin{frame}{凹関数の判定}
     以下の定理が知られている．証明は省略する．
-
     \begin{thm}
         $f(x)$を実数上の関数とする． $f(x)$が二階微分可能ならば，
         \[
             \text{$f(x)$は凹関数} \iff f''(x) \le 0.
         \]
     \end{thm}
+\end{frame}
 
-    以下のことがわかる．
+\begin{frame}{凹関数の判定}
+    二階微分を用いて，凹関数の判定を行う．
 
     \begin{thm}
         $log_2 x$は凹関数である．
@@ -69,6 +66,7 @@
 \begin{frame}{目次}
 	\tableofcontents[currentsection]
 \end{frame}
+
 \begin{frame}{Jensenの不等式}
     以下の不等式を\textbf{Jensenの不等式}という\cite{lit:kanketsu}．
 
@@ -85,7 +83,9 @@
     $n=2$のときは凹関数の定義より明らか．
 
 	\vskip\baselineskip
-    符号長を表す式は$log_2 x$など凹関数が多く，Jensenの不等式を用いて上界を求められる．
+    符号長を表す式は$log_2 x$など凹関数が多い．
+
+    上界を求めるのにJensenの不等式が役立つ．
 \end{frame}
 
 \begin{frame}{不等式の証明}
